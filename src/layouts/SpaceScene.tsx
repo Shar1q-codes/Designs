@@ -1,5 +1,6 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useMemo, useRef } from 'react';
+import { isLite } from '../perf';
 import * as THREE from 'three';
 
 // A soft round sprite drawn once, used for stars and nebula clouds.
@@ -98,7 +99,7 @@ const atmosphere = {
     }`,
 };
 
-function Planet() {
+function Planet({ segments }: { segments: number }) {
   const ref = useRef<THREE.Group>(null);
   const bands = useMemo(() => {
     // Banded surface texture, drawn once.
@@ -129,16 +130,16 @@ function Planet() {
     <group position={[-34, -20, -60]}>
       <group ref={ref}>
         <mesh>
-          <sphereGeometry args={[18, 64, 64]} />
+          <sphereGeometry args={[18, segments, segments]} />
           <meshStandardMaterial map={bands} roughness={0.9} metalness={0} />
         </mesh>
       </group>
       <mesh scale={1.14}>
-        <sphereGeometry args={[18, 64, 64]} />
+        <sphereGeometry args={[18, segments, segments]} />
         <shaderMaterial args={[atmosphere]} blending={THREE.AdditiveBlending} side={THREE.BackSide} transparent depthWrite={false} />
       </mesh>
       <mesh rotation={[Math.PI / 2.35, 0.25, 0]}>
-        <ringGeometry args={[24, 34, 128]} />
+        <ringGeometry args={[24, 34, segments * 2]} />
         <meshBasicMaterial color="#f5d9a8" transparent opacity={0.16} side={THREE.DoubleSide} depthWrite={false} />
       </mesh>
     </group>
@@ -154,7 +155,7 @@ function ShootingStar() {
     const s = state.current;
     const m = ref.current;
     if (!m) return;
-    s.t += dt;
+    s.t += Math.min(dt, 0.05); // a resumed frame after a pause never skips the streak
     if (s.t > s.next) {
       s.t = 0;
       s.next = 6 + Math.random() * 6;
@@ -196,22 +197,51 @@ function Rig() {
   return null;
 }
 
+// Lite mode (phones, low-power devices): draws on demand at up to 30 fps and not at all
+// while the page is scrolling, so scrolling never competes with the 3D scene for the GPU.
+function LiteDriver({ fps }: { fps: number }) {
+  const invalidate = useThree((s) => s.invalidate);
+  useEffect(() => {
+    let raf = 0;
+    let last = 0;
+    let scrolledAt = 0;
+    const onScroll = () => (scrolledAt = performance.now());
+    const tick = (t: number) => {
+      raf = requestAnimationFrame(tick);
+      if (t - scrolledAt < 200 || t - last < 1000 / fps) return;
+      last = t;
+      invalidate();
+    };
+    addEventListener('scroll', onScroll, { passive: true, capture: true });
+    addEventListener('touchmove', onScroll, { passive: true, capture: true });
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(raf);
+      removeEventListener('scroll', onScroll, { capture: true });
+      removeEventListener('touchmove', onScroll, { capture: true });
+    };
+  }, [fps, invalidate]);
+  return null;
+}
+
 export default function SpaceScene({ still }: { still: boolean }) {
-  const count = typeof innerWidth !== 'undefined' && innerWidth < 700 ? 1800 : 4200;
+  const lite = isLite();
+  const count = lite ? 1100 : 4200;
   return (
     <Canvas
       camera={{ position: [0, 0, 30], fov: 60, near: 0.1, far: 1000 }}
-      dpr={[1, 1.75]}
-      frameloop={still ? 'demand' : 'always'}
-      gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+      dpr={lite ? [1, 1.25] : [1, 1.75]}
+      frameloop={still || lite ? 'demand' : 'always'}
+      gl={{ antialias: !lite, alpha: true, powerPreference: lite ? 'low-power' : 'high-performance' }}
     >
       <ambientLight intensity={0.06} />
       <directionalLight position={[40, 30, 20]} intensity={2.4} color="#ffe7c4" />
       <Nebulae />
       <Stars count={count} />
-      <Planet />
+      <Planet segments={lite ? 32 : 64} />
       {!still && <ShootingStar />}
-      {!still && <Rig />}
+      {!still && !lite && <Rig />}
+      {!still && lite && <LiteDriver fps={30} />}
     </Canvas>
   );
 }

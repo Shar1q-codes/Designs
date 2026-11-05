@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import type { Scene, StyleId } from '../designs';
 
 // Three.js only loads when the glass style is shown.
@@ -76,11 +76,28 @@ function CursorBlob({ still }: { still: boolean }) {
   return <div className="cursor-blob" ref={ref} />;
 }
 
+// Waits until the browser is idle after first paint, so the 3D scene's download and
+// setup never compete with the page appearing (the CSS gradient shows meanwhile).
+function useIdle() {
+  const [idle, setIdle] = useState(false);
+  useEffect(() => {
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
+    if (w.requestIdleCallback) {
+      const id = w.requestIdleCallback(() => setIdle(true), { timeout: 1500 });
+      return () => cancelIdleCallback(id);
+    }
+    const t = setTimeout(() => setIdle(true), 600);
+    return () => clearTimeout(t);
+  }, []);
+  return idle;
+}
+
 export function SceneLayer({ scene, still }: { scene?: Scene; still: boolean }) {
+  const idle = useIdle();
   if (!scene) return null;
   return (
     <div className={`scene scene-${scene}`} aria-hidden="true">
-      {scene === 'space' && (
+      {scene === 'space' && idle && (
         <Suspense fallback={null}>
           <SpaceScene still={still} />
         </Suspense>

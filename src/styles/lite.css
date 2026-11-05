@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Lite mode (html.lite, set in index.html for phones and low-power devices).
+   Same look, cheaper internals: one live blur at most, no repaint-every-frame
+   animations, no fixed backgrounds that repaint on scroll.
+   ========================================================================== */
+
+/* Fixed page backgrounds force a full repaint on every scroll step on mobile. */
+html.lite body { background-attachment: scroll; }
+
+/* Stacked live blurs are the main cost: every blur over moving content is recomputed
+   every frame. Keep only the glass pane's own blur and give everything else a solid tint. */
+html.lite .site-head,
+html.lite .card,
+html.lite .step,
+html.lite .tool-group,
+html.lite .sec,
+html.lite .scrolly-card,
+html.lite .hm-tile,
+html.lite .dm-toggle,
+html.lite .dm-panel,
+html.lite .motion-toggle,
+html.lite .mega-panel {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html.lite[data-style="glass"] .site-head { background: rgba(9, 13, 24, .86); }
+html.lite[data-style="glass"] .card,
+html.lite[data-style="glass"] .step { background: rgba(255, 255, 255, .07); }
+html.lite[data-style="glass"] body::before { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+html.lite[data-style="fluent"] .site-head { background: rgba(243, 243, 243, .94); }
+html.lite[data-style="fluent"] .card,
+html.lite[data-style="fluent"] .step,
+html.lite[data-style="fluent"] .tool-group { background-color: rgba(255, 255, 255, .9); }
+html.lite[data-style="y2k"] .card,
+html.lite[data-style="y2k"] .step { background: rgba(16, 22, 60, .92); }
+html.lite[data-style="cyberpunk"] .site-head,
+html.lite[data-style="cyberpunk"] .card { background: rgba(13, 6, 33, .94); }
+
+/* Organic: morph with transform only (border-radius and blur animate on the CPU). */
+html.lite .scene-blobs .blob { filter: none; animation-name: drift; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; will-change: transform; }
+@keyframes drift {
+  0% { transform: rotate(0) translate(0, 0) scale(1); }
+  50% { transform: rotate(20deg) translate(2vw, 3vh) scale(1.05); }
+  100% { transform: rotate(-12deg) translate(-2vw, 1vh) scale(.97); }
+}
+
+/* Cyberpunk: the travelling grid repaints every frame; hold it still and keep the glow static. */
+html.lite .scene-grid .grid-floor { animation: none; }
+html.lite .scene-grid .sun { filter: none; }
+html.lite[data-style="cyberpunk"] .hero-title em { animation: none; }
+html.lite[data-style="cyberpunk"] .hero-title { text-shadow: 0 0 8px rgba(5, 217, 232, .8); }
+
+/* Large soft shadows and heavy text glows are expensive to paint while scrolling. */
+html.lite[data-style="y2k"] .hero-title,
+html.lite[data-style="y2k"] .sec-head h2 { filter: none; }
+html.lite .px-near i { filter: none; }
+
+/* Scrolling inside the glass pane: promote it to its own layer. */
+html.lite[data-style="glass"] .shell { will-change: scroll-position; }
+html.lite .pvs-card { backdrop-filter: none; }

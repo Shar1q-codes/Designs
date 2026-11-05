@@ -19,6 +19,11 @@
         r.dataset.style = d.style;
         r.dataset.layout = exp ? 'experience' : d.layout;
         r.dataset.nav = exp ? 'experience' : d.nav;
+        // Lite mode: phones and low-power devices get the same look with cheaper effects (src/perf.ts).
+        var n = navigator, c = n.connection || {};
+        var lite = matchMedia('(pointer: coarse)').matches || innerWidth < 900 ||
+          (n.hardwareConcurrency || 8) <= 4 || (n.deviceMemory || 8) <= 4 || c.saveData === true;
+        if (lite) r.classList.add('lite');
       })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
