@@ -1,0 +1,38 @@
+/* Decorative background scenes. Each is still under reduced motion or the pause toggle. */
+
+.scene-space { background: radial-gradient(ellipse at 70% 20%, #0d2347 0, transparent 55%), radial-gradient(ellipse at 15% 85%, #0b3a3c 0, transparent 45%), #03050b; }
+
+/* Synthwave: a sun and a travelling perspective grid */
+.scene-grid { background: linear-gradient(#07020f 0%, #1a0533 55%, #3b0a45 62%, #07020f 63%); }
+.scene-grid .sun {
+  position: absolute; left: 50%; top: 22%; width: min(42vw, 420px); aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%;
+  background: linear-gradient(#f9f002, #ff901f 45%, #ff2975 75%);
+  mask-image: repeating-linear-gradient(transparent 0 55%, #000 55% 100%), linear-gradient(#000 55%, transparent 55%);
+  -webkit-mask-image: linear-gradient(#000 0 52%, transparent 52% 56%, #000 56% 63%, transparent 63% 68%, #000 68% 76%, transparent 76% 82%, #000 82% 89%, transparent 89% 95%, #000 95%);
+  filter: drop-shadow(0 0 40px rgba(255, 41, 117, .6));
+}
+.scene-grid .grid-floor {
+  position: absolute; left: -50%; right: -50%; bottom: -10%; height: 55%;
+  background:
+    linear-gradient(transparent 94%, #ff2a6d 94%) 0 0 / 60px 60px,
+    linear-gradient(90deg, transparent 94%, #ff2a6d 94%) 0 0 / 60px 60px;
+  transform: perspective(320px) rotateX(62deg); transform-origin: top;
+  mask-image: linear-gradient(transparent, #000 35%);
+  -webkit-mask-image: linear-gradient(transparent, #000 35%);
+  animation: grid-run 1.6s linear infinite;
+}
+@keyframes grid-run { to { background-position: 0 60px, 0 0; } }
+
+/* Organic: three slow morphing blobs */
+.scene-blobs .blob { position: absolute; display: block; filter: blur(2px); opacity: .55; animation: morph 14s ease-in-out infinite alternate; }
+.scene-blobs .b1 { width: 46vmax; height: 46vmax; left: -12vmax; top: -10vmax; background: #a3b18a; }
+.scene-blobs .b2 { width: 34vmax; height: 34vmax; right: -10vmax; top: 30vh; background: #dda15e; animation-delay: -5s; }
+.scene-blobs .b3 { width: 28vmax; height: 28vmax; left: 30vw; bottom: -12vmax; background: #e9c9a8; animation-delay: -9s; }
+@keyframes morph {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0) translate(0, 0); }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(20deg) translate(2vw, 3vh); }
+  100% { border-radius: 50% 50% 40% 60% / 40% 70% 50% 50%; transform: rotate(-12deg) translate(-2vw, 1vh); }
+}
+
+/* Experimental: the scene only hosts the cursor blob */
+.scene-cursor { z-index: 170; }

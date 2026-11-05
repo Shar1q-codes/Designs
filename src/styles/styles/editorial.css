@@ -1,0 +1,55 @@
+/* Editorial: a printed magazine. Huge serif heads, hairline rules, drop caps and columns. */
+[data-style="editorial"] {
+  --bg: #f3eee4;
+  --fg: #161412;
+  --muted: #5a544c;
+  --accent: #c8361e;
+  --on-accent: #ffffff;
+  --surface: transparent;
+  --line: #161412;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-btn: 0px;
+  --head-bg: #f3eee4;
+  --head-blur: none;
+  --font-body: "Newsreader", Georgia, serif;
+  --font-display: "Newsreader", Georgia, serif;
+  --font-mono: "Inter Tight", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.03em;
+  --display-line: .92;
+  --h1: clamp(3.25rem, 9vw, 8.5rem);
+  --maxw: 78rem;
+  --thumb-bg: #e7dfd0;
+  --thumb-a: #161412;
+  --thumb-b: #c8361e;
+  --thumb-c: #b9ad98;
+}
+html[data-style="editorial"] body { font-size: 1.1875rem; }
+html[data-style="editorial"] .site-head { border-bottom: 4px double #161412; }
+html[data-style="editorial"] .brand { font-style: italic; font-weight: 500; font-size: 1.5rem; }
+html[data-style="editorial"] .brand-mark { display: none; }
+html[data-style="editorial"] .nav a, html[data-style="editorial"] .eyebrow, html[data-style="editorial"] .sec-num, html[data-style="editorial"] .tags li, html[data-style="editorial"] .tool-group h3, html[data-style="editorial"] .step-num, html[data-style="editorial"] .btn {
+  font-family: "Inter Tight", sans-serif; text-transform: uppercase; letter-spacing: .12em; font-size: .6875rem; font-weight: 600;
+}
+html[data-style="editorial"] .eyebrow { color: #c8361e; }
+html[data-style="editorial"] .hero-title em { font-style: italic; color: #c8361e; }
+html[data-style="editorial"] .hero-lede { font-size: 1.375rem; font-style: italic; color: #161412; }
+html[data-style="editorial"] .sec-head { border-top: 1px solid #161412; padding-top: .75rem; }
+html[data-style="editorial"] .sec-num::before { content: "No. "; }
+html[data-style="editorial"] .sec-head h2 { font-style: italic; font-size: clamp(2.5rem, 6vw, 5rem); }
+html[data-style="editorial"] .about-text { columns: 2 16rem; column-gap: 2.5rem; column-rule: 1px solid rgba(22, 20, 18, .25); }
+html[data-style="editorial"] .about-text p + p { color: inherit; }
+html[data-style="editorial"] .about-text p:first-child::first-letter { float: left; font-size: 5.25em; line-height: .78; padding: .05em .08em 0 0; color: #c8361e; font-weight: 500; }
+html[data-style="editorial"] .card { border: 0; border-top: 1px solid #161412; padding-top: 1rem; }
+html[data-style="editorial"] .card:hover { transform: none; }
+html[data-style="editorial"] .card-body { padding: 1rem 0 0; }
+html[data-style="editorial"] .card h3 { font-size: 1.75rem; font-style: italic; }
+html[data-style="editorial"] .thumb { filter: sepia(.25) contrast(1.05); }
+html[data-style="editorial"] .tags li { border: 0; padding: 0; }
+html[data-style="editorial"] .tags li + li::before { content: "· "; }
+html[data-style="editorial"] .step { border: 0; border-left: 1px solid #161412; border-radius: 0; padding: 0 0 0 1.25rem; }
+html[data-style="editorial"] .btn { padding: 1rem 1.5rem; }
+html[data-style="editorial"] .btn-primary { background: #161412; color: #f3eee4; }
+html[data-style="editorial"] .contact-mail { font-style: italic; }
+html[data-style="editorial"] .hero-media .hm-tile { border: 0; }

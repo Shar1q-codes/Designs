@@ -1,0 +1,46 @@
+/* Material Design 3: tonal surfaces, elevation levels, shape scale and ripples.
+   The baseline violet primary is swapped for a teal seed colour. */
+[data-style="material"] {
+  --bg: #f4fbf9;
+  --fg: #161d1c;
+  --muted: #3f4947;
+  --accent: #006a60;
+  --accent-2: #4a635f;
+  --on-accent: #ffffff;
+  --surface: #e9efed;
+  --surface-2: #dee4e2;
+  --line: #bec9c6;
+  --border-w: 0px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 1px 3px 1px rgba(0, 0, 0, .15);
+  --shadow-hover: 0 1px 3px rgba(0, 0, 0, .3), 0 4px 8px 3px rgba(0, 0, 0, .15);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-btn: 999px;
+  --head-bg: #f4fbf9;
+  --head-blur: none;
+  --font-body: "Roboto", system-ui, sans-serif;
+  --font-display: "Roboto", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.015em;
+  --thumb-bg: #cce8e3;
+  --thumb-a: #006a60;
+  --thumb-b: #4a635f;
+  --thumb-c: #9ed1c8;
+}
+html[data-style="material"] .site-head { box-shadow: 0 1px 2px rgba(0, 0, 0, .15); border: 0; }
+html[data-style="material"] .brand-mark { border-radius: 8px; }
+html[data-style="material"] .nav a { border-radius: 999px; background-image: none; }
+html[data-style="material"] .nav a:hover { background: rgba(0, 106, 96, .08); }
+html[data-style="material"] .btn { height: 2.75rem; padding: 0 1.5rem; font-weight: 500; letter-spacing: .01em; }
+html[data-style="material"] .btn:hover { transform: none; box-shadow: var(--shadow); }
+html[data-style="material"] .btn-ghost { border: 1px solid #6f7977; background: transparent; color: #006a60; }
+html[data-style="material"] .card:hover, html[data-style="material"] .step:hover { transform: none; }
+html[data-style="material"] .card { border-radius: 12px; }
+html[data-style="material"] .thumb { margin: .5rem .5rem 0; border-radius: 8px; }
+html[data-style="material"] .tags li { border-radius: 8px; border: 1px solid #6f7977; }
+html[data-style="material"] .step { background: #d1e7e3; box-shadow: none; border-radius: 16px; }
+html[data-style="material"] .hero-title em { color: #006a60; }
+html[data-style="material"] .hero-media .hm-tile { border-radius: 28px; border: 0; }
+html[data-style="material"] .contact-form input,
+html[data-style="material"] .contact-form textarea { background: #dee4e2; border: 0; border-bottom: 2px solid #6f7977; border-radius: 4px 4px 0 0; box-shadow: none; }
+html[data-style="material"] .dm-toggle { border-radius: 16px; }

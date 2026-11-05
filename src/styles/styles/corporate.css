@@ -1,0 +1,41 @@
+/* Corporate clean tech: navy ink, one confident blue, white space and a skewed colour band. */
+[data-style="corporate"] {
+  --bg: #ffffff;
+  --fg: #0a2540;
+  --muted: #425466;
+  --accent: #0a66ff;
+  --accent-2: #00d4ff;
+  --on-accent: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f6f9fc;
+  --line: #e3e8ee;
+  --shadow: 0 2px 5px rgba(50, 50, 93, .08), 0 1px 1.5px rgba(0, 0, 0, .05);
+  --shadow-hover: 0 30px 60px -12px rgba(50, 50, 93, .25), 0 18px 36px -18px rgba(0, 0, 0, .3);
+  --radius: 8px;
+  --radius-sm: 6px;
+  --radius-btn: 999px;
+  --head-bg: rgba(255, 255, 255, .85);
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --display-weight: 800;
+  --display-tracking: -0.035em;
+  --thumb-bg: #f6f9fc;
+  --thumb-a: #0a66ff;
+  --thumb-b: #00d4ff;
+  --thumb-c: #c9d7e8;
+}
+html[data-style="corporate"] .hero { position: relative; }
+html[data-style="corporate"] .hero::before {
+  content: ""; position: absolute; z-index: -1; inset: -20% -50vw 25% -50vw;
+  background: linear-gradient(120deg, #e7f1ff, #d9f7ff 50%, #ffffff);
+  transform: skewY(-8deg); transform-origin: top left;
+}
+html[data-style="corporate"] .hero-title em { color: #0a66ff; }
+html[data-style="corporate"] .eyebrow { display: inline-block; align-self: flex-start; padding: .25rem .75rem; border-radius: 999px; background: #e7f1ff; color: #0a66ff; font-family: var(--font-body); font-weight: 600; }
+html[data-style="corporate"] .btn-primary::after { content: "→"; transition: transform .2s var(--ease); }
+html[data-style="corporate"] .btn-primary:hover::after { transform: translateX(3px); }
+html[data-style="corporate"] .sec:nth-of-type(even) { background: #f6f9fc; max-width: none; }
+html[data-style="corporate"] .sec:nth-of-type(even) > * { max-width: calc(var(--maxw) - 2 * var(--gutter)); margin-inline: auto; }
+html[data-style="corporate"] .tags li { background: #f6f9fc; border-color: transparent; color: #425466; }
+html[data-style="corporate"] .brand-mark { border-radius: 6px; background: linear-gradient(135deg, #0a66ff, #00d4ff); }
+html[data-style="corporate"] .step-num { color: #0a66ff; font-weight: 700; }

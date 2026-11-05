@@ -1,0 +1,52 @@
+/* Retro Y2K: chrome type, aqua gel buttons, pixel fonts and matrix rain. */
+[data-style="y2k"] {
+  --bg: #0a0a1f;
+  --fg: #e8f7ff;
+  --muted: #a6c8e6;
+  --accent: #01cdfe;
+  --accent-2: #ff71ce;
+  --on-accent: #001a33;
+  --surface: rgba(16, 22, 60, .78);
+  --line: rgba(166, 227, 255, .45);
+  --shadow: 0 0 0 1px rgba(255, 255, 255, .08) inset, 0 0 18px rgba(1, 205, 254, .25);
+  --shadow-hover: 0 0 0 1px rgba(255, 255, 255, .15) inset, 0 0 30px rgba(255, 113, 206, .45);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-btn: 999px;
+  --head-bg: linear-gradient(#c8d4e0, #8796a8);
+  --head-blur: none;
+  --font-body: "VT323", monospace;
+  --font-display: "Orbitron", sans-serif;
+  --display-weight: 800;
+  --display-tracking: 0.02em;
+  --display-case: uppercase;
+  --h1: clamp(2.25rem, 6vw, 5rem);
+  --thumb-bg: #12124a;
+  --thumb-a: #01cdfe;
+  --thumb-b: #ff71ce;
+  --thumb-c: #05ffa1;
+}
+html[data-style="y2k"] body { font-size: 1.3rem; line-height: 1.35; }
+html[data-style="y2k"] .site-head { background: linear-gradient(#e6edf5, #9aa9bb 50%, #7d8ca0 51%, #c3cfdc); color: #0a0a1f; border-bottom: 2px solid #4d5c70; }
+html[data-style="y2k"] .brand-mark { background: conic-gradient(#ff71ce, #01cdfe, #05ffa1, #fffb96, #ff71ce); box-shadow: 0 0 10px #01cdfe; }
+html[data-style="y2k"] .hero-title, html[data-style="y2k"] .sec-head h2 {
+  background: linear-gradient(180deg, #ffffff 0%, #d8d8d8 45%, #6e6e6e 50%, #f0f0f0 55%, #9a9a9a 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 10px rgba(1, 205, 254, .55));
+}
+html[data-style="y2k"] .hero-title em { color: transparent; }
+html[data-style="y2k"] .btn { position: relative; font-family: "Orbitron", sans-serif; font-size: .8125rem; text-transform: uppercase; letter-spacing: .06em; }
+html[data-style="y2k"] .btn-primary { background: linear-gradient(#6fb7ff, #0a5bd8); color: #fff; border: 1px solid #0a3f99; text-shadow: 0 1px 0 #0a3f99; }
+html[data-style="y2k"] .btn::before { content: ""; position: absolute; left: 8%; right: 8%; top: 2px; height: 46%; border-radius: 999px; background: linear-gradient(rgba(255, 255, 255, .75), rgba(255, 255, 255, .1)); pointer-events: none; }
+html[data-style="y2k"] .btn-ghost { background: linear-gradient(#ff9fe0, #d63fa6); color: #fff; border: 1px solid #8f2470; }
+html[data-style="y2k"] .card { backdrop-filter: blur(4px); }
+html[data-style="y2k"] .thumb { image-rendering: pixelated; border-bottom: 1px dashed var(--line); }
+html[data-style="y2k"] .tags li { border-color: #05ffa1; color: #05ffa1; }
+html[data-style="y2k"] .eyebrow::before { content: "★ "; color: #fffb96; }
+html[data-style="y2k"] .eyebrow::after { content: " ★ welcome to my homepage"; color: #ff71ce; }
+html[data-style="y2k"] .ticker { display: block; background: #000; color: #05ffa1; font-family: "VT323", monospace; font-size: 1.5rem; padding: .25rem 0; border-block: 2px ridge #c0c0c0; }
+html[data-style="y2k"] .step, html[data-style="y2k"] .tool-group { backdrop-filter: blur(4px); }
+html[data-style="y2k"] .tool-group { background: var(--surface); padding: 1rem; border-radius: 14px; border: 1px solid var(--line); }
+html[data-style="y2k"] .site-foot::after { content: "Best viewed at 800×600"; display: block; width: 100%; color: #fffb96; }
+html[data-style="y2k"] .sec-head h2 { font-size: min(clamp(1.75rem, 4vw, 3rem), 8.5vw); }
+html[data-style="y2k"] .hero-title { font-size: min(var(--h1), 10vw); }

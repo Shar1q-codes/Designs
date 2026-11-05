@@ -1,0 +1,43 @@
+/* Claymorphism: inflated pastel shapes with a tinted drop shadow and two inner shadows. */
+[data-style="clay"] {
+  --bg: #f0f4ff;
+  --fg: #2b2d42;
+  --muted: #5a5f7a;
+  --accent: #ff8fab;
+  --accent-2: #8ecae6;
+  --on-accent: #3a1020;
+  --surface: #ffffff;
+  --line: transparent;
+  --border-w: 0px;
+  --shadow: 14px 14px 32px rgba(145, 170, 230, .45), inset -8px -8px 16px rgba(145, 170, 230, .35), inset 8px 8px 16px rgba(255, 255, 255, .9);
+  --shadow-hover: 20px 20px 40px rgba(145, 170, 230, .55), inset -8px -8px 16px rgba(145, 170, 230, .35), inset 8px 8px 16px rgba(255, 255, 255, .9);
+  --radius: 32px;
+  --radius-sm: 18px;
+  --radius-btn: 999px;
+  --btn-shadow: 8px 8px 18px rgba(255, 143, 171, .45), inset -5px -5px 10px rgba(200, 60, 100, .25), inset 5px 5px 10px rgba(255, 255, 255, .6);
+  --btn-shadow-hover: var(--btn-shadow);
+  --btn-shadow-active: inset -3px -3px 8px rgba(200, 60, 100, .25), inset 4px 4px 10px rgba(200, 60, 100, .3);
+  --head-bg: rgba(240, 244, 255, .85);
+  --font-body: "Nunito", system-ui, sans-serif;
+  --font-display: "Nunito", system-ui, sans-serif;
+  --display-weight: 900;
+  --display-tracking: -0.02em;
+  --thumb-bg: #c1e1ff;
+  --thumb-a: #ff8fab;
+  --thumb-b: #ffc8a2;
+  --thumb-c: #ffffff;
+}
+html[data-style="clay"] .site-head { border: 0; }
+html[data-style="clay"] .brand-mark { box-shadow: 4px 4px 10px rgba(255, 143, 171, .5), inset -3px -3px 6px rgba(200, 60, 100, .3), inset 3px 3px 6px rgba(255, 255, 255, .7); }
+html[data-style="clay"] .card .thumb { margin: .875rem .875rem 0; border-radius: 22px; box-shadow: inset 4px 4px 10px rgba(255, 255, 255, .7), inset -4px -4px 10px rgba(100, 140, 220, .3); }
+html[data-style="clay"] .card:nth-child(3n + 2) .thumb { background: #ffd6e0; }
+html[data-style="clay"] .card:nth-child(3n) .thumb { background: #b9fbc0; }
+html[data-style="clay"] .btn:active { transform: scale(.97); }
+html[data-style="clay"] .btn-ghost { background: #fff; box-shadow: 8px 8px 18px rgba(145, 170, 230, .45), inset -4px -4px 8px rgba(145, 170, 230, .3), inset 4px 4px 8px #fff; border: 0; }
+html[data-style="clay"] .tags li { border: 0; background: #f0f4ff; box-shadow: inset 2px 2px 4px rgba(145, 170, 230, .4), inset -2px -2px 4px #fff; font-weight: 700; }
+html[data-style="clay"] .hero-title em { color: #ff6b93; }
+html[data-style="clay"] .step:nth-child(2) { background: #ffd6e0; }
+html[data-style="clay"] .step:nth-child(3) { background: #c1e1ff; }
+html[data-style="clay"] .step:nth-child(4) { background: #b9fbc0; }
+html[data-style="clay"] .pipe-dot { box-shadow: 4px 4px 10px rgba(145, 170, 230, .5), inset 2px 2px 4px #fff; }
+html[data-style="clay"] .hero-media .hm-tile { border-radius: 32px; }

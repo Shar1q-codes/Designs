@@ -1,0 +1,44 @@
+/* Organic: earthy palette, soft serif, living blob shapes and paper grain. */
+[data-style="organic"] {
+  --bg: #f2ede3;
+  --fg: #283618;
+  --muted: #5b6447;
+  --accent: #bc6c25;
+  --accent-2: #606c38;
+  --on-accent: #fefae0;
+  --surface: #fefae0;
+  --line: rgba(40, 54, 24, .16);
+  --shadow: 0 10px 30px rgba(96, 108, 56, .12);
+  --shadow-hover: 0 18px 40px rgba(96, 108, 56, .2);
+  --radius: 28px;
+  --radius-sm: 16px;
+  --radius-btn: 999px;
+  --head-bg: rgba(242, 237, 227, .85);
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --display-weight: 400;
+  --display-tracking: -0.02em;
+  --thumb-bg: #e9e4d8;
+  --thumb-a: #606c38;
+  --thumb-b: #bc6c25;
+  --thumb-c: #a3b18a;
+}
+html[data-style="organic"] .brand-mark { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; background: #606c38; }
+html[data-style="organic"] .hero-title em { font-style: italic; color: #bc6c25; }
+html[data-style="organic"] .card:nth-child(odd) { border-radius: 40px 24px 48px 20px; }
+html[data-style="organic"] .card:nth-child(even) { border-radius: 24px 44px 20px 52px; }
+html[data-style="organic"] .card .thumb { border-radius: 0 0 50% 50% / 0 0 14% 14%; }
+html[data-style="organic"] .step { border-radius: 60% 40% 45% 55% / 30% 40% 35% 45%; padding: 2rem 1.75rem; }
+html[data-style="organic"] .step:nth-child(2) { background: #e3e8d4; }
+html[data-style="organic"] .step:nth-child(3) { background: #f1dfc8; }
+html[data-style="organic"] .tags li { background: #e9e4d8; border: 0; }
+html[data-style="organic"] .sec + .sec::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 24px;
+  background: radial-gradient(circle at 12px -4px, transparent 13px, rgba(96, 108, 56, .18) 14px, transparent 15px) 0 0 / 48px 24px repeat-x;
+}
+html[data-style="organic"] .pipe-dot { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; border-color: #606c38; }
+html[data-style="organic"] .pipe-dot::after { background: #bc6c25; }
+html[data-style="organic"] .scene-blobs::after {
+  content: ""; position: absolute; inset: 0; opacity: .5; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

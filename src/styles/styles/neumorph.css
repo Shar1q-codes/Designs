@@ -1,0 +1,47 @@
+/* Neumorphism: everything is the background colour, raised or pressed by paired shadows. */
+[data-style="neumorph"] {
+  --bg: #e0e5ec;
+  --fg: #2f3a4a;
+  --muted: #5f6b7d;
+  --accent: #e0e5ec;
+  --accent-2: #ff6a3d;
+  --on-accent: #ff5a2a;
+  --surface: #e0e5ec;
+  --line: transparent;
+  --border-w: 0px;
+  --shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+  --shadow-hover: 12px 12px 22px #a3b1c6, -12px -12px 22px #ffffff;
+  --radius: 24px;
+  --radius-sm: 14px;
+  --radius-btn: 16px;
+  --btn-shadow: 6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff;
+  --btn-shadow-hover: 8px 8px 14px #a3b1c6, -8px -8px 14px #ffffff;
+  --btn-shadow-active: inset 6px 6px 10px #a3b1c6, inset -6px -6px 10px #ffffff;
+  --head-bg: #e0e5ec;
+  --head-blur: none;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-display: "Manrope", system-ui, sans-serif;
+  --display-weight: 800;
+  --display-tracking: -0.03em;
+  --thumb-bg: #e0e5ec;
+  --thumb-a: #ff6a3d;
+  --thumb-b: #8a97ab;
+  --thumb-c: #c3cbd6;
+}
+html[data-style="neumorph"] .site-head { margin: 1rem var(--gutter) 0; border-radius: 999px; box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #fff; top: 1rem; border: 0; }
+html[data-style="neumorph"] .brand-mark { background: #e0e5ec; box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #fff; }
+html[data-style="neumorph"] .btn-primary { color: #ff5a2a; }
+html[data-style="neumorph"] .btn-ghost { background: #e0e5ec; border: 0; }
+html[data-style="neumorph"] .btn:hover { transform: none; }
+html[data-style="neumorph"] .card .thumb { margin: 1rem 1rem 0; border-radius: 16px; box-shadow: inset 6px 6px 12px #a3b1c6, inset -6px -6px 12px #fff; }
+html[data-style="neumorph"] .tags li { border: 0; box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #fff; }
+html[data-style="neumorph"] .facts > div { border: 0; padding: .875rem 1rem; margin-bottom: .5rem; border-radius: 12px; box-shadow: inset 4px 4px 8px #a3b1c6, inset -4px -4px 8px #fff; }
+html[data-style="neumorph"] .hero-title em { color: #ff6a3d; }
+html[data-style="neumorph"] .pipe-dot { border: 0; box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #fff; }
+html[data-style="neumorph"] .pipe-dot::after { background: #ff6a3d; }
+html[data-style="neumorph"] .pipeline::before { height: 6px; top: calc(1rem - 2px); border-radius: 6px; background: #e0e5ec; box-shadow: inset 2px 2px 4px #a3b1c6, inset -2px -2px 4px #fff; }
+html[data-style="neumorph"] .contact-form input,
+html[data-style="neumorph"] .contact-form textarea { border: 0; box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #fff; background: #e0e5ec; }
+html[data-style="neumorph"] .status-dot, html[data-style="neumorph"] .step-num { color: #ff6a3d; background-color: #ff6a3d; }
+html[data-style="neumorph"] .step-num { background: none; }
+html[data-style="neumorph"] :focus-visible { outline-color: #ff6a3d; }

@@ -1,0 +1,60 @@
+/* Notebook: lined paper, a red margin, ink handwriting, tape and polaroids. */
+[data-style="notebook"] {
+  --bg: #fdfbf4;
+  --bg-image:
+    linear-gradient(90deg, transparent 4.5rem, #f2a4a4 4.5rem, #f2a4a4 calc(4.5rem + 2px), transparent 0),
+    repeating-linear-gradient(transparent 0 calc(2rem - 1px), #c9d8ee calc(2rem - 1px) 2rem);
+  --fg: #22304a;
+  --muted: #4d5b75;
+  --accent: #e0523f;
+  --on-accent: #ffffff;
+  --surface: #ffffff;
+  --line: #22304a;
+  --border-w: 2px;
+  --shadow: 0 6px 14px rgba(0, 0, 0, .12);
+  --shadow-hover: 0 12px 24px rgba(0, 0, 0, .16);
+  --radius: 3px;
+  --radius-sm: 3px;
+  --radius-btn: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --btn-border: #22304a;
+  --head-bg: transparent;
+  --head-blur: none;
+  --font-body: "Kalam", cursive;
+  --font-display: "Caveat", cursive;
+  --display-weight: 700;
+  --display-tracking: 0;
+  --display-line: .95;
+  --h1: clamp(3.5rem, 9vw, 7.5rem);
+  --thumb-bg: #f7f3e7;
+  --thumb-a: #22304a;
+  --thumb-b: #e0523f;
+  --thumb-c: #8fb1de;
+}
+html[data-style="notebook"] body { line-height: 2rem; background-attachment: local; }
+html[data-style="notebook"] .shell { padding-left: 4rem; }
+html[data-style="notebook"] .site-head { border: 0; }
+html[data-style="notebook"] .brand { font-family: "Caveat", cursive; font-size: 1.75rem; }
+html[data-style="notebook"] .brand-mark { background: none; border: 2px solid #e0523f; border-radius: 50% 40% 55% 45%; }
+html[data-style="notebook"] .nav a { font-size: 1rem; }
+html[data-style="notebook"] .hero-title em { color: inherit; background: linear-gradient(transparent 55%, #fff27a 55%); }
+html[data-style="notebook"] .sec-head h2 { font-size: clamp(2.75rem, 6vw, 4.5rem); text-decoration: underline wavy #e0523f 2px; text-underline-offset: .2em; }
+html[data-style="notebook"] .card { padding: .75rem .75rem 0; border: 0; overflow: visible; }
+html[data-style="notebook"] .card:nth-child(odd) { transform: rotate(-1.5deg); }
+html[data-style="notebook"] .card:nth-child(even) { transform: rotate(1.25deg); }
+html[data-style="notebook"] .card:hover { transform: rotate(0) translateY(-2px); }
+html[data-style="notebook"] .card::before {
+  content: ""; position: absolute; top: -12px; left: 50%; width: 90px; height: 26px; margin-left: -45px;
+  background: rgba(255, 228, 120, .75); transform: rotate(-3deg); box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+html[data-style="notebook"] .card-body { padding: 1rem .5rem 1.25rem; }
+html[data-style="notebook"] .card h3 { font-size: 2rem; }
+html[data-style="notebook"] .tags li { border: 2px solid #22304a; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; }
+html[data-style="notebook"] .btn-primary { background: #e0523f; border-color: #22304a; }
+html[data-style="notebook"] .btn:hover { transform: rotate(-1deg) translateY(-2px); }
+html[data-style="notebook"] .step { background: #fff8b8; border: 0; transform: rotate(-1deg); box-shadow: 0 8px 16px rgba(0, 0, 0, .12); }
+html[data-style="notebook"] .step:nth-child(even) { background: #d6f0ff; transform: rotate(1.25deg); }
+html[data-style="notebook"] .step h3 { font-size: 1.75rem; }
+html[data-style="notebook"] .pipe-dot { border-radius: 50% 40% 55% 45%; }
+html[data-style="notebook"] .pipeline::before { background: none; border-top: 2px dashed #22304a; }
+html[data-style="notebook"] .facts > div { border-color: transparent; }
+@media (max-width: 680px) { html[data-style="notebook"] .shell { padding-left: 2.5rem; } html[data-style="notebook"] { --bg-image: repeating-linear-gradient(transparent 0 calc(2rem - 1px), #c9d8ee calc(2rem - 1px) 2rem); } }

@@ -1,0 +1,59 @@
+/* Industrial / architectural: blueprint grid on cyan-blue paper, concrete panels, dimension marks. */
+[data-style="industrial"] {
+  --bg: #0f3b73;
+  --bg-image:
+    linear-gradient(rgba(255, 255, 255, .16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .16) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+  --fg: #eaf2ff;
+  --muted: #a9c3ea;
+  --accent: #ffc107;
+  --accent-2: #ffffff;
+  --on-accent: #111111;
+  --surface: rgba(255, 255, 255, .04);
+  --line: rgba(234, 242, 255, .5);
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-btn: 0px;
+  --head-bg: rgba(15, 59, 115, .9);
+  --head-blur: none;
+  --font-body: "IBM Plex Mono", monospace;
+  --font-display: "IBM Plex Sans Condensed", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --display-weight: 700;
+  --display-case: uppercase;
+  --display-tracking: 0;
+  --thumb-bg: transparent;
+  --thumb-a: #ffffff;
+  --thumb-b: #ffc107;
+  --thumb-c: rgba(255, 255, 255, .45);
+}
+html[data-style="industrial"] body { background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px; font-size: .9375rem; }
+html[data-style="industrial"] .site-head { border-bottom: 1px solid var(--line); }
+html[data-style="industrial"] .site-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 6px; background: repeating-linear-gradient(45deg, #ffc107 0 10px, #111 10px 20px); }
+html[data-style="industrial"] .brand-mark { background: none; border: 2px solid #ffc107; border-radius: 0; }
+html[data-style="industrial"] .hero-title em { color: #ffc107; }
+html[data-style="industrial"] .sec-num::before { content: "SHEET "; }
+html[data-style="industrial"] .sec-num::after { content: " / 07"; }
+html[data-style="industrial"] .sec-head { border-bottom: 1px dashed var(--line); padding-bottom: .75rem; }
+html[data-style="industrial"] .card, html[data-style="industrial"] .step { border-style: dashed; }
+html[data-style="industrial"] .card::before, html[data-style="industrial"] .card::after {
+  content: ""; position: absolute; width: 14px; height: 14px; border: 0 solid #ffc107;
+}
+html[data-style="industrial"] .card::before { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
+html[data-style="industrial"] .card::after { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
+html[data-style="industrial"] .cards { counter-reset: fig; }
+html[data-style="industrial"] .card h3::before { counter-increment: fig; content: "FIG. " counter(fig) " — "; color: #ffc107; font-size: .75em; }
+html[data-style="industrial"] .thumb { border-bottom: 1px dashed var(--line); }
+html[data-style="industrial"] .btn { text-transform: uppercase; letter-spacing: .1em; font-size: .8125rem; }
+html[data-style="industrial"] .btn-ghost { border-color: #fff; }
+html[data-style="industrial"] .hero::after {
+  content: "DRAWN BY  S. S. HUSSAIN\A SCALE      1 : 1\A REV        C";
+  white-space: pre; position: absolute; right: var(--gutter); bottom: 2rem;
+  font: 500 .6875rem/1.7 "IBM Plex Mono", monospace; color: var(--muted);
+  border: 1px solid var(--line); padding: .5rem .75rem; background: rgba(15, 59, 115, .8);
+}
+html[data-style="industrial"] .sec-education, html[data-style="industrial"] .sec-toolkit {
+  background: linear-gradient(rgba(196, 194, 188, .12), rgba(169, 169, 166, .08));
+}

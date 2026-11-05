@@ -1,0 +1,36 @@
+/* Flat 2.0: flat colour fills with one soft shadow and a hint of gradient. */
+[data-style="flat2"] {
+  --bg: #f7f9fc;
+  --fg: #1f2d3d;
+  --muted: #5b6b7f;
+  --accent: #3498db;
+  --accent-2: #1abc9c;
+  --on-accent: #ffffff;
+  --surface: #ffffff;
+  --line: #e3e9f0;
+  --shadow: 0 2px 6px rgba(31, 45, 61, .08);
+  --shadow-hover: 0 8px 20px rgba(31, 45, 61, .12);
+  --radius: 8px;
+  --radius-sm: 6px;
+  --radius-btn: 6px;
+  --btn-shadow: 0 2px 0 #217dbb;
+  --btn-shadow-hover: 0 4px 0 #217dbb;
+  --btn-shadow-active: 0 0 0 #217dbb;
+  --font-body: "Nunito Sans", system-ui, sans-serif;
+  --font-display: "Nunito Sans", system-ui, sans-serif;
+  --display-weight: 800;
+  --display-tracking: -0.02em;
+  --thumb-bg: linear-gradient(#eaf4fc, #dceefa);
+  --thumb-a: #3498db;
+  --thumb-b: #1abc9c;
+  --thumb-c: #a9cbe6;
+}
+html[data-style="flat2"] .thumb { background: linear-gradient(160deg, #eaf4fc, #d6eaf8); }
+html[data-style="flat2"] .tbg { fill: transparent; }
+html[data-style="flat2"] .btn-primary { background: linear-gradient(#3fa2e4, #3498db); }
+html[data-style="flat2"] .btn-ghost { background: #fff; box-shadow: 0 2px 6px rgba(31, 45, 61, .08); border-color: #e3e9f0; }
+html[data-style="flat2"] .hero-title em { color: #1abc9c; }
+html[data-style="flat2"] .brand-mark { border-radius: 6px; background: linear-gradient(135deg, #3498db, #1abc9c); }
+html[data-style="flat2"] .step-num { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: #eaf4fc; }
+html[data-style="flat2"] .tags li { background: #f0f5fa; border-color: transparent; color: #3c5a76; }
+html[data-style="flat2"] .hero-media .hm-tile { box-shadow: 0 10px 30px rgba(31, 45, 61, .1); }

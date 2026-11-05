@@ -1,0 +1,36 @@
+/* Minimalism: generous space, one weight of grey, almost no decoration. */
+[data-style="minimal"] {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #6b6b6b;
+  --accent: #111111;
+  --on-accent: #ffffff;
+  --surface: transparent;
+  --line: #eaeaea;
+  --radius: 0px;
+  --radius-sm: 2px;
+  --radius-btn: 2px;
+  --head-bg: rgba(255, 255, 255, .9);
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+  --display-weight: 500;
+  --display-tracking: -0.04em;
+  --sec-pad: clamp(6rem, 18vh, 12rem);
+  --maxw: 64rem;
+  --thumb-bg: #f6f6f6;
+  --thumb-a: #111111;
+  --thumb-b: #9a9a9a;
+  --thumb-c: #d6d6d6;
+}
+html[data-style="minimal"] .site-head { border-bottom-color: transparent; }
+html[data-style="minimal"] .brand-mark { width: .5rem; height: .5rem; }
+html[data-style="minimal"] .card { border: 0; }
+html[data-style="minimal"] .card-body { padding: 1.25rem 0 0; }
+html[data-style="minimal"] .thumb svg { filter: grayscale(1); }
+html[data-style="minimal"] .step { border: 0; border-top: 1px solid #111; border-radius: 0; padding: 1.25rem 0 0; }
+html[data-style="minimal"] .tags li { border: 0; padding: 0; color: var(--muted); }
+html[data-style="minimal"] .tags li + li::before { content: "/ "; }
+html[data-style="minimal"] .btn { padding: .75rem 0; background: none; color: var(--fg); border: 0; border-bottom: 1px solid currentColor; border-radius: 0; }
+html[data-style="minimal"] .btn-primary { background: none; color: var(--fg); }
+html[data-style="minimal"] .actions { gap: 2rem; }
+html[data-style="minimal"] .hero-title em { color: var(--muted); }

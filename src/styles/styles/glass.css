@@ -1,0 +1,41 @@
+/* Glassmorphism: the whole site is one frosted pane floating in a 3D starfield. */
+[data-style="glass"] {
+  --bg: #03050b;
+  --fg: #eef3f8;
+  --muted: #a3b1c2;
+  --accent: #7ee0d2;
+  --accent-2: #f5b971;
+  --on-accent: #03201c;
+  --surface: rgba(255, 255, 255, .055);
+  --surface-2: rgba(255, 255, 255, .09);
+  --line: rgba(255, 255, 255, .13);
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+  --shadow-hover: inset 0 1px 0 rgba(255, 255, 255, .14), 0 20px 40px -20px rgba(0, 0, 0, .6);
+  --radius: 20px;
+  --radius-sm: 10px;
+  --head-bg: rgba(10, 14, 24, .35);
+  --head-blur: blur(16px) saturate(140%);
+  --font-body: "Instrument Sans", system-ui, sans-serif;
+  --font-display: "Instrument Sans", system-ui, sans-serif;
+  --thumb-bg: rgba(8, 20, 32, .7);
+  --thumb-a: #7ee0d2;
+  --thumb-b: #f5b971;
+  --thumb-c: #3b6d9c;
+}
+html[data-style="glass"] { --shell-inset: clamp(.625rem, 2.5vw, 2rem); }
+html[data-style="glass"] body { background: #03050b radial-gradient(ellipse at 70% 20%, #0d2347 0, transparent 55%); }
+
+html[data-style="glass"] .shell {
+  border-radius: 28px; overflow: clip;
+  background: linear-gradient(140deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .025) 40%, rgba(255, 255, 255, .055));
+  backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, .16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 40px 120px -20px rgba(0, 0, 0, .8);
+}
+html[data-style="glass"] .site-head { border-radius: 28px 28px 0 0; }
+html[data-style="glass"] .hero-title em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: #f5d9a8; letter-spacing: -.01em; }
+html[data-style="glass"] .card,
+html[data-style="glass"] .step { backdrop-filter: blur(6px); }
+html[data-style="glass"] .card:hover { border-color: rgba(126, 224, 210, .4); }
+html[data-style="glass"] .btn-primary { box-shadow: 0 0 0 1px rgba(255, 255, 255, .2) inset, 0 10px 30px -10px rgba(126, 224, 210, .6); }
+html[data-style="glass"] .brand-mark { box-shadow: 0 0 16px #7ee0d2; }

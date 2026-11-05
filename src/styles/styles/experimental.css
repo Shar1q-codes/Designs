@@ -1,0 +1,54 @@
+/* Abstract / experimental: acid duotone, overlapping and tilted blocks, a cursor that inverts the page. */
+[data-style="experimental"] {
+  --bg: #e8ff00;
+  --fg: #0a0a0a;
+  --muted: #2a2a2a;
+  --accent: #0a0a0a;
+  --accent-2: #0000ff;
+  --on-accent: #e8ff00;
+  --surface: transparent;
+  --line: #0a0a0a;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-btn: 0px;
+  --head-bg: transparent;
+  --head-blur: none;
+  --font-body: "Syne", system-ui, sans-serif;
+  --font-display: "Syne", system-ui, sans-serif;
+  --display-weight: 800;
+  --display-tracking: -0.06em;
+  --display-line: .8;
+  --h1: clamp(3rem, 9.5vw, 9.5rem);
+  --thumb-bg: #0a0a0a;
+  --thumb-a: #e8ff00;
+  --thumb-b: #0000ff;
+  --thumb-c: #ffffff;
+}
+html[data-style="experimental"] .site-head { border: 0; mix-blend-mode: difference; color: #fff; }
+html[data-style="experimental"] .brand-mark { background: #fff; border-radius: 0; animation: spin 6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+html[data-style="experimental"] .hero-title { font-size: min(var(--h1), 10.5vw); }
+html[data-style="experimental"] .hero-title .ht-line:nth-child(1) { transform: rotate(-3deg); transform-origin: left; }
+html[data-style="experimental"] .hero-title .ht-line:nth-child(2) { padding-left: min(8vw, 6rem); color: #0000ff; mix-blend-mode: multiply; }
+html[data-style="experimental"] .hero-title em { color: transparent; -webkit-text-stroke: 2px #0a0a0a; }
+html[data-style="experimental"] .hero-title { transition: letter-spacing .6s var(--ease); }
+html[data-style="experimental"] .hero-title:hover { letter-spacing: 0; }
+html[data-style="experimental"] .hero-lede { transform: rotate(2deg); background: #0a0a0a; color: #e8ff00; padding: 1rem; max-width: 30rem; margin-left: auto; }
+html[data-style="experimental"] .sec-head h2 { font-size: min(clamp(2.5rem, 10vw, 9rem), 10vw); writing-mode: horizontal-tb; transform: rotate(-2deg); }
+html[data-style="experimental"] .sec:nth-of-type(odd) .sec-head { justify-content: flex-end; }
+html[data-style="experimental"] .card { border: 2px solid #0a0a0a; transition: transform .4s cubic-bezier(.34, 1.56, .64, 1); }
+html[data-style="experimental"] .card:nth-child(3n + 1) { transform: rotate(-4deg) translateY(1rem); }
+html[data-style="experimental"] .card:nth-child(3n + 2) { transform: rotate(3deg) translateY(-1.5rem); z-index: 1; }
+html[data-style="experimental"] .card:nth-child(3n) { transform: rotate(-1deg) translateY(2rem); }
+html[data-style="experimental"] .card:hover { transform: rotate(0) scale(1.04); z-index: 2; background: #fff; }
+html[data-style="experimental"] .step:hover { transform: rotate(-3deg) scale(1.05); }
+html[data-style="experimental"] .btn { border: 2px solid #0a0a0a; }
+html[data-style="experimental"] .btn:hover { transform: rotate(-4deg) scale(1.08); }
+html[data-style="experimental"] .tags li { border-radius: 0; border-width: 2px; }
+html[data-style="experimental"] .cursor-blob {
+  position: fixed; left: -60px; top: -60px; width: 120px; height: 120px; border-radius: 50%;
+  background: #fff; mix-blend-mode: difference; z-index: 170; pointer-events: none;
+}
+@media (max-width: 420px) { html[data-style="experimental"] .sec-head h2, html[data-style="experimental"] .card, html[data-style="experimental"] .hero-lede { transform: none; } html[data-style="experimental"] .card:hover { transform: none; } }
+html[data-style="experimental"] .cursor-blob { transform: translate(-200px, -200px); }
+@media (pointer: coarse) { html[data-style="experimental"] .cursor-blob { display: none; } }

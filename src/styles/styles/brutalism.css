@@ -1,0 +1,47 @@
+/* Raw brutalism: browser-default fonts, blue links, hard lines, no polish. */
+[data-style="brutalism"] {
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted: #000000;
+  --accent: #0000ee;
+  --on-accent: #ffffff;
+  --surface: #ffffff;
+  --line: #000000;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-btn: 0px;
+  --btn-border: #000;
+  --head-bg: #ffffff;
+  --head-blur: none;
+  --font-body: "Times New Roman", Times, serif;
+  --font-display: "Times New Roman", Times, serif;
+  --font-mono: "Courier New", Courier, monospace;
+  --display-weight: 700;
+  --display-tracking: -0.02em;
+  --display-line: .92;
+  --h1: clamp(3rem, 12vw, 11rem);
+  --maxw: none;
+  --thumb-bg: #ffffff;
+  --thumb-a: #000000;
+  --thumb-b: #ff0000;
+  --thumb-c: #000000;
+}
+html[data-style="brutalism"] { cursor: crosshair; }
+html[data-style="brutalism"] a { color: #0000ee; text-decoration: underline; }
+html[data-style="brutalism"] a:visited { color: #551a8b; }
+html[data-style="brutalism"] .site-head { border-bottom: 1px solid #000; }
+html[data-style="brutalism"] .brand, html[data-style="brutalism"] .nav a { color: #0000ee; text-decoration: underline; background: none; }
+html[data-style="brutalism"] .brand-mark { display: none; }
+html[data-style="brutalism"] .sec { border-bottom: 1px solid #000; }
+html[data-style="brutalism"] .sec-head h2 { font-size: clamp(2.5rem, 9vw, 8rem); }
+html[data-style="brutalism"] .sec-num::before { content: "§"; }
+html[data-style="brutalism"] .hero-title em { color: #ff0000; text-decoration: underline; }
+html[data-style="brutalism"] .card, html[data-style="brutalism"] .step { transition: none; }
+html[data-style="brutalism"] .card:hover, html[data-style="brutalism"] .step:hover { transform: none; background: #ffff00; }
+html[data-style="brutalism"] .btn { background: #dddddd; color: #000; border: 2px outset #eee; font-family: Arial, sans-serif; font-weight: 400; text-decoration: none; }
+html[data-style="brutalism"] .btn:active { border-style: inset; }
+html[data-style="brutalism"] .btn:hover { transform: none; }
+html[data-style="brutalism"] .tags li { border: 1px solid #000; font-family: "Courier New", monospace; }
+html[data-style="brutalism"] .contact-mail { color: #0000ee; text-decoration: underline; }
+html[data-style="brutalism"] .pipeline::after { animation: none; display: none; }
+html[data-style="brutalism"] hr { border: 0; border-top: 1px solid #000; }

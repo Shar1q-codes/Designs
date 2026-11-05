@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" data-style="glass" data-layout="linear" data-nav="sticky">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Syed Shariq Hussain · Software Engineer &amp; Data Scientist</title>
+    <meta name="description" content="Portfolio of Syed Shariq Hussain, software engineer (web, app and software development) and data scientist. Pick a design and the whole site changes shape." />
+    <meta name="theme-color" content="#03050b" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      // Apply the saved design before first paint so the page never flashes the wrong one.
+      (function () {
+        var d = { style: 'glass', layout: 'linear', nav: 'sticky' };
+        try { Object.assign(d, JSON.parse(localStorage.getItem('portfolio-design-v2') || '{}')); } catch (e) {}
+        var q = new URLSearchParams(location.search);
+        ['style', 'layout', 'nav'].forEach(function (k) { if (q.get(k)) d[k] = q.get(k); });
+        var exp = ['terminal', 'retro', 'game', 'video'].indexOf(d.style) > -1;
+        var r = document.documentElement;
+        r.dataset.style = d.style;
+        r.dataset.layout = exp ? 'experience' : d.layout;
+        r.dataset.nav = exp ? 'experience' : d.nav;
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>This portfolio needs JavaScript to switch designs.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

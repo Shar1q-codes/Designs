@@ -1,0 +1,47 @@
+/* Flat design: solid bright colour blocks, crisp edges, no gradient and no shadow. */
+[data-style="flat"] {
+  --bg: #ecf0f1;
+  --fg: #2c3e50;
+  --muted: #52687e;
+  --accent: #e74c3c;
+  --accent-2: #3498db;
+  --on-accent: #ffffff;
+  --surface: #ffffff;
+  --line: transparent;
+  --border-w: 0px;
+  --radius: 4px;
+  --radius-sm: 4px;
+  --radius-btn: 4px;
+  --head-bg: #2d9cdb;
+  --head-blur: none;
+  --font-body: "Poppins", system-ui, sans-serif;
+  --font-display: "Poppins", system-ui, sans-serif;
+  --display-weight: 700;
+  --display-tracking: -0.02em;
+  --thumb-bg: #1abc9c;
+  --thumb-a: #ffffff;
+  --thumb-b: #f1c40f;
+  --thumb-c: #16a085;
+}
+html[data-style="flat"] .site-head { color: #fff; }
+html[data-style="flat"] .brand-mark { background: #f1c40f; border-radius: 4px; }
+html[data-style="flat"] .hero { background: #2d9cdb; color: #fff; max-width: none; }
+html[data-style="flat"] .hero-copy { max-width: var(--maxw); margin-inline: auto; }
+html[data-style="flat"] .hero .hero-lede, html[data-style="flat"] .hero .eyebrow, html[data-style="flat"] .hero .hero-fact { color: #eaf5fc; }
+html[data-style="flat"] .hero-title em { color: #f1c40f; }
+html[data-style="flat"] .btn-ghost { background: #fff; color: #2c3e50; }
+html[data-style="flat"] .card:nth-child(6n + 2) .thumb { background: #3498db; }
+html[data-style="flat"] .card:nth-child(6n + 3) .thumb { background: #e67e22; }
+html[data-style="flat"] .card:nth-child(6n + 4) .thumb { background: #9b59b6; }
+html[data-style="flat"] .card:nth-child(6n + 5) .thumb { background: #e74c3c; }
+html[data-style="flat"] .card:nth-child(6n) .thumb { background: #34495e; }
+html[data-style="flat"] .tags li { background: #ecf0f1; border: 0; }
+html[data-style="flat"] .step { border-top: 6px solid #1abc9c; }
+html[data-style="flat"] .step:nth-child(2) { border-top-color: #3498db; }
+html[data-style="flat"] .step:nth-child(3) { border-top-color: #f1c40f; }
+html[data-style="flat"] .step:nth-child(4) { border-top-color: #e74c3c; }
+html[data-style="flat"] .pipe-dot { box-shadow: none; }
+html[data-style="flat"] .sec-contact { background: #e74c3c; color: #fff; max-width: none; }
+html[data-style="flat"] .sec-contact > * { max-width: calc(var(--maxw) - 2 * var(--gutter)); width: 100%; margin-inline: auto; }
+html[data-style="flat"] .sec-contact .contact-lede, html[data-style="flat"] .sec-contact .sec-num { color: #fde5e2; }
+html[data-style="flat"] .sec-contact .btn-primary { background: #2c3e50; }

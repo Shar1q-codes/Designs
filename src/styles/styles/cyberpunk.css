@@ -1,0 +1,52 @@
+/* Cyberpunk / synthwave: neon magenta and cyan glow, chamfered panels, scanlines, a travelling grid. */
+[data-style="cyberpunk"] {
+  --bg: #07020f;
+  --fg: #f2f4ff;
+  --muted: #9fb3d9;
+  --accent: #05d9e8;
+  --accent-2: #ff2a6d;
+  --on-accent: #07020f;
+  --surface: rgba(13, 6, 33, .82);
+  --line: rgba(5, 217, 232, .55);
+  --shadow: 0 0 0 1px rgba(5, 217, 232, .25), 0 0 24px rgba(5, 217, 232, .15);
+  --shadow-hover: 0 0 0 1px #ff2a6d, 0 0 32px rgba(255, 42, 109, .45);
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-btn: 0px;
+  --head-bg: rgba(7, 2, 15, .8);
+  --font-body: "Rajdhani", system-ui, sans-serif;
+  --font-display: "Rajdhani", system-ui, sans-serif;
+  --font-mono: "Share Tech Mono", monospace;
+  --display-weight: 700;
+  --display-case: uppercase;
+  --display-tracking: 0.02em;
+  --display-line: .9;
+  --thumb-bg: #0d0221;
+  --thumb-a: #05d9e8;
+  --thumb-b: #ff2a6d;
+  --thumb-c: #5a2b8c;
+}
+html[data-style="cyberpunk"] body { font-size: 1.125rem; }
+html[data-style="cyberpunk"] body::after {
+  content: ""; position: fixed; inset: 0; z-index: 180; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .22) 0 1px, transparent 1px 3px);
+}
+html[data-style="cyberpunk"] .site-head { border-bottom: 1px solid #ff2a6d; box-shadow: 0 0 20px rgba(255, 42, 109, .35); }
+html[data-style="cyberpunk"] .brand-mark { background: #ff2a6d; border-radius: 0; clip-path: polygon(0 0, 70% 0, 100% 30%, 100% 100%, 30% 100%, 0 70%); box-shadow: 0 0 12px #ff2a6d; }
+html[data-style="cyberpunk"] .hero-title { text-shadow: 0 0 4px #fff, 0 0 12px #05d9e8, 0 0 28px #05d9e8; }
+html[data-style="cyberpunk"] .hero-title em { color: #ff2a6d; text-shadow: 2px 0 #05d9e8, -2px 0 #ff2a6d, 0 0 18px #ff2a6d; animation: glitch 3.5s steps(1) infinite; }
+@keyframes glitch { 0%, 92%, 100% { transform: none; } 93% { transform: translate(2px, -1px); clip-path: inset(10% 0 55% 0); } 95% { transform: translate(-2px, 1px); clip-path: inset(50% 0 10% 0); } }
+html[data-style="cyberpunk"] .sec-head h2 { text-shadow: 0 0 10px rgba(5, 217, 232, .8); }
+html[data-style="cyberpunk"] .sec-num { color: #ff2a6d; }
+html[data-style="cyberpunk"] .sec-num::before { content: "// "; }
+html[data-style="cyberpunk"] .card, html[data-style="cyberpunk"] .step, html[data-style="cyberpunk"] .hm-tile {
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+html[data-style="cyberpunk"] .card { backdrop-filter: blur(6px); }
+html[data-style="cyberpunk"] .btn { text-transform: uppercase; letter-spacing: .1em; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
+html[data-style="cyberpunk"] .btn-primary { box-shadow: 0 0 18px #05d9e8; }
+html[data-style="cyberpunk"] .btn-ghost { background: #ff2a6d; color: #07020f; border: 0; }
+html[data-style="cyberpunk"] .tags li { border-color: #ff2a6d; color: #ff8fb3; border-radius: 0; font-family: "Share Tech Mono", monospace; }
+html[data-style="cyberpunk"] .pipe-dot { border-color: #ff2a6d; box-shadow: 0 0 12px #ff2a6d; border-radius: 0; transform: rotate(45deg); }
+html[data-style="cyberpunk"] .pipe-dot::after { border-radius: 0; }
+html[data-style="cyberpunk"] .ticker { display: block; color: #f9f002; font-family: "Share Tech Mono", monospace; border-block: 1px solid #f9f002; padding: .5rem 0; background: rgba(7, 2, 15, .7); }
