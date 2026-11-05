@@ -1,7 +1,11 @@
 /* Design menu: one neutral look in every design so it is always easy to find. */
 
+/* Room kept free at the bottom right for the host's badge (Netlify's free plan shows one there).
+   Set to 0px on a host without a badge. */
+:root { --host-badge: 4rem; }
+
 .dm-toggle {
-  position: fixed; right: calc(1rem + env(safe-area-inset-right)); bottom: calc(1rem + env(safe-area-inset-bottom)); z-index: 200;
+  position: fixed; right: calc(1rem + env(safe-area-inset-right)); bottom: calc(1rem + var(--host-badge) + env(safe-area-inset-bottom)); z-index: 200;
   display: inline-flex; align-items: center; gap: .625rem;
   padding: .75rem 1rem .75rem .875rem; border-radius: 999px; cursor: pointer;
   font: 600 .9375rem/1 "Instrument Sans", system-ui, sans-serif;
@@ -26,8 +30,8 @@
 .dm-toggle[aria-expanded="true"] .dm-icon i { border-radius: 0; }
 
 .dm-panel {
-  position: fixed; z-index: 201; right: calc(1rem + env(safe-area-inset-right)); bottom: calc(4.75rem + env(safe-area-inset-bottom));
-  width: min(52rem, calc(100vw - 2rem)); max-height: calc(100svh - 6rem - env(safe-area-inset-bottom)); overflow: auto;
+  position: fixed; z-index: 201; right: calc(1rem + env(safe-area-inset-right)); bottom: calc(4.75rem + var(--host-badge) + env(safe-area-inset-bottom));
+  width: min(52rem, calc(100vw - 2rem)); max-height: calc(100svh - 6rem - var(--host-badge) - env(safe-area-inset-bottom)); overflow: auto;
   padding: 1.25rem; border-radius: 20px;
   font: 400 .9375rem/1.45 "Instrument Sans", system-ui, sans-serif; color: #e9edf2;
   background: rgba(12, 15, 21, .96); border: 1px solid rgba(255, 255, 255, .14);
@@ -190,7 +194,7 @@
 @media (max-width: 560px) {
   .dm-toggle span:not(.dm-icon), .dm-toggle kbd { display: none; }
   .dm-toggle { padding: .875rem; }
-  .dm-panel { right: .5rem; left: .5rem; width: auto; bottom: 4.5rem; padding: 1rem; }
+  .dm-panel { right: .5rem; left: .5rem; width: auto; bottom: calc(4.5rem + var(--host-badge)); padding: 1rem; }
   .dm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .pv-style[data-style="industrial"] { background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px; }

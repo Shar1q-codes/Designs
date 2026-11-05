@@ -104,9 +104,10 @@ html[data-style="retro"] body { overflow: hidden; font-size: .9375rem; }
 .tasks { flex: 1; display: flex; gap: .25rem; overflow-x: auto; scrollbar-width: none; height: 100%; }
 .task { flex: 0 1 10rem; min-width: 5rem; height: 100%; padding: 0 .625rem; font-size: .8125rem; text-align: left; background: #c3c3c3; border: 0; box-shadow: var(--bevel-out); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .task.is-active { box-shadow: var(--bevel-in); background: repeating-conic-gradient(#c3c3c3 0 25%, #fff 0 50%) 0 0 / 2px 2px; font-weight: 700; }
-.tray { height: 100%; display: flex; align-items: center; padding: 0 .75rem; box-shadow: inset -1px -1px #fff, inset 1px 1px #808080; font-size: .8125rem; margin-right: 9.5rem; }
+.tray { height: 100%; display: flex; align-items: center; padding: 0 .75rem; box-shadow: inset -1px -1px #fff, inset 1px 1px #808080; font-size: .8125rem; margin-right: 14.75rem; }
 html[data-style="retro"] .motion-toggle { bottom: 3.25rem; }
-html[data-style="retro"] .dm-toggle { bottom: .25rem; right: .25rem; padding-block: .5rem; border-radius: 0; background: #c3c3c3; color: #000; box-shadow: var(--bevel-out); border: 0; backdrop-filter: none; }
+/* The clock stays clear of the host badge in the bottom-right corner. */
+html[data-style="retro"] .dm-toggle { bottom: calc(.25rem + var(--host-badge)); right: .25rem; padding-block: .5rem; border-radius: 0; background: #c3c3c3; color: #000; box-shadow: var(--bevel-out); border: 0; backdrop-filter: none; }
 html[data-style="retro"] .dm-toggle kbd { border-color: #000; }
 @media (max-width: 760px) {
   .win { position: relative; left: auto; top: auto; width: auto; max-height: none; margin: .5rem; transform: none !important; }
