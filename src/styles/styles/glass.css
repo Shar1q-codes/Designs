@@ -25,14 +25,32 @@
 html[data-style="glass"] { --shell-inset: clamp(.625rem, 2.5vw, 2rem); }
 html[data-style="glass"] body { background: #03050b radial-gradient(ellipse at 70% 20%, #0d2347 0, transparent 55%); }
 
+/* The pane is fixed to the screen and the site scrolls inside it, clipped to its rounded edges,
+   so nothing ever slides out past the pane or above the header. */
+html[data-style="glass"] body { overflow: hidden; }
 html[data-style="glass"] .shell {
-  border-radius: 28px; overflow: clip;
+  position: fixed; inset: var(--shell-inset); z-index: 1; margin: 0;
+  overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain;
+  border-radius: 28px; scroll-padding-top: 5rem; scroll-behavior: smooth;
+  scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, .22) transparent;
+}
+/* The frosted glass is its own fixed layer behind the pane: a blur on the scrolling
+   element itself would trap fixed menus (hamburger, sidebar) inside the scroll. */
+html[data-style="glass"] body::before {
+  content: ""; position: fixed; inset: var(--shell-inset); z-index: 1; pointer-events: none;
+  border-radius: 28px;
   background: linear-gradient(140deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .025) 40%, rgba(255, 255, 255, .055));
   backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, .16);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 40px 120px -20px rgba(0, 0, 0, .8);
 }
-html[data-style="glass"] .site-head { border-radius: 28px 28px 0 0; }
+html[data-style="glass"] .site-head { top: 0; border-radius: 28px 28px 0 0; }
+@media (min-width: 900px) {
+  /* The sidebar is fixed to the screen, so it sits on the pane's inset, not at the very top. */
+  html[data-style="glass"] .nav-sidebar { top: var(--shell-inset); bottom: var(--shell-inset); left: var(--shell-inset); border-radius: 28px 0 0 28px; }
+  html[data-style="glass"][data-nav="sidebar"] .shell { padding-left: 16rem; }
+}
+html[data-style="glass"] .hero { min-height: calc(100svh - 4.5rem - var(--shell-inset) * 2); }
 html[data-style="glass"] .hero-title em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: #f5d9a8; letter-spacing: -.01em; }
 html[data-style="glass"] .card,
 html[data-style="glass"] .step { backdrop-filter: blur(6px); }

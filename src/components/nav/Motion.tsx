@@ -10,16 +10,17 @@ export function ParallaxLayers({ still }: { still: boolean }) {
     let raf = 0;
     const update = () => {
       raf = 0;
-      const y = scrollY;
+      // The glass style scrolls inside its pane, every other style scrolls the page.
+      const y = Math.max(scrollY, document.querySelector('.shell')?.scrollTop ?? 0);
       ref.current?.querySelectorAll<HTMLElement>('[data-depth]').forEach((el) => {
         el.style.transform = `translate3d(0, ${-y * Number(el.dataset.depth)}px, 0)`;
       });
     };
     const onScroll = () => (raf ||= requestAnimationFrame(update));
-    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('scroll', onScroll, { passive: true, capture: true });
     update();
     return () => {
-      removeEventListener('scroll', onScroll);
+      removeEventListener('scroll', onScroll, { capture: true });
       cancelAnimationFrame(raf);
     };
   }, [still]);

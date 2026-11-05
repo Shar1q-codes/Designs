@@ -54,6 +54,7 @@ function restoreSection(id: string | null) {
   if (!id || id === 'home') {
     scrollTo({ top: 0, behavior: 'instant' });
     document.querySelector('.h-track')?.scrollTo({ left: 0, behavior: 'instant' });
+    document.querySelector('.shell')?.scrollTo({ top: 0, behavior: 'instant' });
     return;
   }
   document.querySelector(`[data-section="${id}"]`)?.scrollIntoView({ block: 'start', inline: 'start', behavior: 'instant' });

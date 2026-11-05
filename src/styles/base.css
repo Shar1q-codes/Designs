@@ -58,7 +58,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 5rem; }
-html.nav-locked { overflow: hidden; }
+html.nav-locked, html.nav-locked .shell { overflow: hidden; }
 
 body {
   margin: 0;
