@@ -65,6 +65,12 @@ html[data-style="video"] body { overflow: hidden; font-size: .9375rem; }
 .monitor .pipeline { gap: .75rem; }
 .monitor .contact-form { grid-template-columns: 1fr 1fr; }
 .monitor .contact-form .span-2 { grid-column: 1 / -1; }
+/* A portrait monitor (a phone held upright) has no room for 16:9 letterboxing:
+   the clip fills the whole monitor instead of a thin strip between black bars. */
+@container (orientation: portrait) {
+  .monitor-frame { width: 100%; height: 100%; }
+  .safe-area { display: none; }
+}
 
 .transport { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .tc { font: 500 .875rem var(--font-mono); color: #4f8cff; }
@@ -105,6 +111,9 @@ html[data-style="video"] body { overflow: hidden; font-size: .9375rem; }
   .ed-rec { margin-right: 7.5rem; }
   .monitor .cards, .monitor .steps, .monitor .toolkit, .monitor .contact-form { grid-template-columns: 1fr; }
   .ed-timeline { padding-left: 2.75rem; }
+  /* Keep the tracks clear of the host badge (bottom right) and the Designs button above it. */
+  .editor { padding-bottom: var(--host-badge); }
+  .ed-timeline { padding-right: 4.75rem; }
   .track-name { left: -2.25rem; }
   .clip { font-size: .5625rem; padding: 0 .25rem; }
 }
